@@ -35,18 +35,20 @@
         }
 
         :root {
-            --bg-primary: #0a0a0a;
-            --bg-secondary: #111111;
-            --bg-card: #161616;
-            --accent-teal: #00D4AA;
-            --accent-purple: #8b5cf6;
+            --bg-primary: #000000;
+            --bg-secondary: #0a0a0a;
+            --bg-card: #111111;
+            --accent-neon: #00FF88;
+            --accent-neon-dim: #00cc6a;
             --text-primary: #ffffff;
             --text-secondary: #e5e5e5;
-            --text-muted: #888888;
-            --border: rgba(255, 255, 255, 0.08);
-            --gradient-purple: linear-gradient(135deg, #8b5cf6, #a855f7);
-            --gradient-teal: linear-gradient(135deg, #00D4AA, #14b8a6);
-            --shadow-glow: 0 0 60px rgba(0, 212, 170, 0.15);
+            --text-muted: #666666;
+            --border: rgba(0, 255, 136, 0.2);
+            --border-hover: rgba(0, 255, 136, 0.6);
+            --neon-glow: 0 0 20px rgba(0, 255, 136, 0.3);
+            --neon-glow-strong: 0 0 40px rgba(0, 255, 136, 0.5);
+            --neon-text-glow: 0 0 10px rgba(0, 255, 136, 0.8);
+            --neon-pulse: 0 0 30px rgba(0, 255, 136, 0.4);
             --radius: 16px;
             --radius-full: 9999px;
             --spacing-xs: 8px;
@@ -78,7 +80,19 @@
 
         .text-center { text-align: center; }
         .text-muted { color: var(--text-muted); }
-        .text-accent { color: var(--accent-teal); }
+        .text-accent { 
+            color: var(--accent-neon); 
+            text-shadow: var(--neon-text-glow);
+        }
+
+        /* NEON DIVIDERS */
+        .neon-divider {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--accent-neon), transparent);
+            box-shadow: var(--neon-glow);
+            margin: var(--spacing-xl) auto;
+            max-width: 400px;
+        }
 
         /* ANIMATIONS */
         @keyframes fadeInUp {
@@ -97,6 +111,24 @@
             50% { transform: translateY(-10px); }
         }
 
+        @keyframes neonPulse {
+            0%, 100% {
+                box-shadow: var(--neon-glow);
+            }
+            50% {
+                box-shadow: var(--neon-glow-strong);
+            }
+        }
+
+        @keyframes textGlow {
+            0%, 100% {
+                text-shadow: var(--neon-text-glow);
+            }
+            50% {
+                text-shadow: 0 0 20px rgba(0, 255, 136, 1);
+            }
+        }
+
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(30px);
@@ -108,6 +140,10 @@
             transform: translateY(0);
         }
 
+        .neon-pulse {
+            animation: neonPulse 3s ease-in-out infinite;
+        }
+
         /* NAVIGATION */
         .nav {
             position: fixed;
@@ -117,7 +153,7 @@
             z-index: 100;
             padding: var(--spacing-sm) 0;
             backdrop-filter: blur(20px);
-            background: rgba(10, 10, 10, 0.85);
+            background: rgba(0, 0, 0, 0.9);
             border-bottom: 1px solid var(--border);
             transition: all 0.3s ease;
         }
@@ -129,13 +165,14 @@
         }
 
         .nav-logo {
-            font-weight: 800;
+            font-weight: 900;
             font-size: 1.25rem;
-            color: var(--text-primary);
+            color: var(--accent-neon);
             display: flex;
             align-items: center;
             gap: var(--spacing-xs);
             text-decoration: none;
+            text-shadow: var(--neon-text-glow);
         }
 
         .nav-logo .emoji {
@@ -143,19 +180,21 @@
         }
 
         .nav-cta {
-            background: var(--gradient-teal);
+            background: var(--accent-neon);
             color: var(--bg-primary);
             padding: 10px 24px;
             border-radius: var(--radius-full);
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.9rem;
             text-decoration: none;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            transition: all 0.2s ease;
+            box-shadow: var(--neon-glow);
         }
 
         .nav-cta:hover {
             transform: translateY(-2px);
-            box-shadow: var(--shadow-glow);
+            box-shadow: var(--neon-glow-strong);
+            background: var(--accent-neon-dim);
         }
 
         /* HERO SECTION */
@@ -173,9 +212,9 @@
         .hero::before {
             content: '';
             position: absolute;
-            width: 800px;
-            height: 800px;
-            background: radial-gradient(circle, rgba(0, 212, 170, 0.08) 0%, transparent 70%);
+            width: 1000px;
+            height: 1000px;
+            background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
@@ -193,28 +232,28 @@
             height: 140px;
             border-radius: 32px;
             margin: 0 auto var(--spacing-lg);
-            box-shadow: var(--shadow-glow);
+            box-shadow: var(--neon-glow-strong);
             animation: float 6s ease-in-out infinite;
             position: relative;
             overflow: hidden;
+            border: 2px solid var(--accent-neon);
         }
 
         .app-icon img {
             width: 100%;
             height: 100%;
-            border-radius: 32px;
+            border-radius: 28px;
             object-fit: cover;
         }
 
         .app-icon::before {
             content: '';
             position: absolute;
-            inset: 0;
+            inset: -2px;
             border-radius: inherit;
-            padding: 2px;
-            background: var(--gradient-teal);
-            mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-            mask-composite: exclude;
+            background: linear-gradient(45deg, var(--accent-neon), transparent, var(--accent-neon));
+            animation: neonPulse 2s ease-in-out infinite;
+            z-index: -1;
         }
 
         .hero-title {
@@ -224,13 +263,13 @@
             letter-spacing: -0.03em;
             margin-bottom: var(--spacing-sm);
             line-height: 1.1;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
         }
 
         .hero-title .accent {
-            background: var(--gradient-teal);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent-neon);
+            text-shadow: var(--neon-text-glow);
+            animation: textGlow 4s ease-in-out infinite;
         }
 
         .hero-subtitle {
@@ -243,12 +282,15 @@
 
         .app-store-badge {
             display: inline-block;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
             filter: brightness(1.1);
+            border-radius: 12px;
+            box-shadow: var(--neon-glow);
         }
 
         .app-store-badge:hover {
             transform: scale(1.05) translateY(-2px);
+            box-shadow: var(--neon-glow-strong);
         }
 
         .app-store-badge img {
@@ -260,6 +302,18 @@
         .screenshots-section {
             padding: var(--spacing-xl) 0;
             background: var(--bg-secondary);
+            position: relative;
+        }
+
+        .screenshots-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-neon), transparent);
+            box-shadow: var(--neon-glow);
         }
 
         .phone-showcase {
@@ -276,15 +330,17 @@
             width: 280px;
             height: 560px;
             margin: 0 auto;
-            background: linear-gradient(145deg, #2a2a2a, #1a1a1a);
+            background: linear-gradient(145deg, #1a1a1a, #0a0a0a);
             border-radius: 36px;
             padding: 12px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
-            transition: transform 0.3s ease;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 0 2px var(--accent-neon);
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent-neon);
         }
 
         .phone-mockup:hover {
             transform: translateY(-8px);
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9), var(--neon-glow-strong);
         }
 
         .phone-mockup::before {
@@ -295,8 +351,9 @@
             transform: translateX(-50%);
             width: 50px;
             height: 6px;
-            background: #333;
+            background: var(--accent-neon);
             border-radius: 3px;
+            box-shadow: 0 0 10px var(--accent-neon);
         }
 
         .phone-mockup::after {
@@ -307,8 +364,9 @@
             transform: translateX(-50%);
             width: 8px;
             height: 8px;
-            background: #444;
+            background: var(--accent-neon);
             border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-neon);
         }
 
         .phone-screen {
@@ -338,9 +396,10 @@
 
         .phone-label {
             margin-top: var(--spacing-sm);
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text-secondary);
             font-size: 1rem;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
         }
 
         .phone-description {
@@ -352,6 +411,7 @@
         /* SECTION STYLES */
         .section {
             padding: var(--spacing-xl) 0;
+            position: relative;
         }
 
         .section-header {
@@ -362,19 +422,21 @@
         .section-label {
             text-transform: uppercase;
             font-size: 0.8rem;
-            font-weight: 700;
+            font-weight: 800;
             letter-spacing: 0.15em;
-            color: var(--accent-teal);
+            color: var(--accent-neon);
             margin-bottom: var(--spacing-sm);
+            text-shadow: var(--neon-text-glow);
         }
 
         .section-title {
             font-size: clamp(1.8rem, 5vw, 3rem);
-            font-weight: 800;
+            font-weight: 900;
             color: var(--text-primary);
             margin-bottom: var(--spacing-sm);
             letter-spacing: -0.02em;
             line-height: 1.2;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
         .section-subtitle {
@@ -397,13 +459,15 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: var(--spacing-lg) var(--spacing-md);
-            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
         }
 
         .feature-card:hover {
             transform: translateY(-6px);
-            border-color: rgba(0, 212, 170, 0.3);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            border-color: var(--border-hover);
+            box-shadow: var(--neon-glow);
+            background: rgba(17, 17, 17, 0.8);
         }
 
         .feature-icon {
@@ -414,9 +478,10 @@
 
         .feature-card h3 {
             font-size: 1.2rem;
-            font-weight: 700;
+            font-weight: 800;
             color: var(--text-primary);
             margin-bottom: var(--spacing-xs);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
 
         .feature-card p {
@@ -447,20 +512,22 @@
             width: 60px;
             height: 60px;
             border-radius: 50%;
-            background: rgba(0, 212, 170, 0.1);
-            border: 2px solid var(--accent-teal);
-            color: var(--accent-teal);
-            font-weight: 800;
+            background: rgba(0, 255, 136, 0.1);
+            border: 2px solid var(--accent-neon);
+            color: var(--accent-neon);
+            font-weight: 900;
             font-size: 1.4rem;
             margin: 0 auto var(--spacing-md);
-            box-shadow: 0 0 30px rgba(0, 212, 170, 0.2);
+            box-shadow: var(--neon-glow);
+            text-shadow: var(--neon-text-glow);
         }
 
         .step-item h3 {
             color: var(--text-primary);
-            font-weight: 700;
+            font-weight: 800;
             font-size: 1.2rem;
             margin-bottom: var(--spacing-xs);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
 
         .step-item p {
@@ -474,7 +541,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: var(--spacing-lg);
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
         }
 
@@ -485,18 +552,23 @@
             padding: var(--spacing-lg);
             text-align: center;
             position: relative;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .price-card:hover {
             transform: translateY(-6px);
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            box-shadow: var(--neon-glow);
+            border-color: var(--border-hover);
         }
 
         .price-card.featured {
-            border-color: var(--accent-teal);
-            box-shadow: 0 0 60px rgba(0, 212, 170, 0.1);
-            background: linear-gradient(135deg, var(--bg-card), rgba(0, 212, 170, 0.02));
+            border-color: var(--accent-neon);
+            box-shadow: var(--neon-glow);
+            background: linear-gradient(135deg, var(--bg-card), rgba(0, 255, 136, 0.03));
+        }
+
+        .price-card.featured:hover {
+            box-shadow: var(--neon-glow-strong);
         }
 
         .price-card.featured::after {
@@ -505,20 +577,27 @@
             top: -14px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--gradient-teal);
+            background: var(--accent-neon);
             color: var(--bg-primary);
             font-size: 0.7rem;
-            font-weight: 800;
+            font-weight: 900;
             padding: 6px 20px;
             border-radius: var(--radius-full);
             letter-spacing: 0.08em;
+            box-shadow: var(--neon-glow);
+        }
+
+        .price-card.yearly::after {
+            content: 'BEST VALUE';
+            background: var(--accent-neon);
         }
 
         .price-card h3 {
             font-size: 1.4rem;
-            font-weight: 800;
+            font-weight: 900;
             color: var(--text-primary);
             margin-bottom: var(--spacing-xs);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
         }
 
         .price-amount {
@@ -526,6 +605,7 @@
             font-weight: 900;
             color: var(--text-primary);
             margin-bottom: var(--spacing-xs);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
         .price-amount .currency {
@@ -557,17 +637,18 @@
 
         .price-features li::before {
             content: '✓';
-            color: var(--accent-teal);
-            font-weight: 700;
+            color: var(--accent-neon);
+            font-weight: 800;
             font-size: 0.9rem;
             flex-shrink: 0;
+            text-shadow: var(--neon-text-glow);
         }
 
         .price-btn {
             display: inline-block;
             padding: 14px var(--spacing-lg);
             border-radius: var(--radius-full);
-            font-weight: 700;
+            font-weight: 800;
             font-size: 0.95rem;
             transition: all 0.3s ease;
             width: 100%;
@@ -581,20 +662,24 @@
         }
 
         .price-btn.outline:hover {
-            border-color: var(--accent-teal);
-            color: var(--accent-teal);
+            border-color: var(--accent-neon);
+            color: var(--accent-neon);
             transform: translateY(-2px);
+            text-shadow: var(--neon-text-glow);
+            box-shadow: var(--neon-glow);
         }
 
         .price-btn.filled {
-            background: var(--gradient-teal);
+            background: var(--accent-neon);
             color: var(--bg-primary);
-            border: none;
+            border: 2px solid var(--accent-neon);
+            box-shadow: var(--neon-glow);
         }
 
         .price-btn.filled:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0, 212, 170, 0.3);
+            box-shadow: var(--neon-glow-strong);
+            background: var(--accent-neon-dim);
         }
 
         /* TESTIMONIALS */
@@ -609,18 +694,21 @@
             border: 1px solid var(--border);
             border-radius: var(--radius);
             padding: var(--spacing-lg);
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
         }
 
         .testimonial-card:hover {
             transform: translateY(-4px);
+            border-color: var(--border-hover);
+            box-shadow: var(--neon-glow);
         }
 
         .stars {
-            color: var(--accent-teal);
+            color: var(--accent-neon);
             font-size: 1rem;
             margin-bottom: var(--spacing-sm);
             letter-spacing: 2px;
+            text-shadow: var(--neon-text-glow);
         }
 
         .testimonial-card p {
@@ -654,20 +742,22 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            font-weight: 600;
+            font-weight: 700;
             color: var(--text-primary);
             font-size: 1.05rem;
             transition: color 0.2s ease;
         }
 
         .faq-question:hover {
-            color: var(--accent-teal);
+            color: var(--accent-neon);
+            text-shadow: var(--neon-text-glow);
         }
 
         .faq-icon {
             font-size: 1.2rem;
             transition: transform 0.3s ease;
-            color: var(--accent-teal);
+            color: var(--accent-neon);
+            text-shadow: var(--neon-text-glow);
         }
 
         .faq-question.open .faq-icon {
@@ -692,15 +782,28 @@
         .cta-section {
             text-align: center;
             padding: var(--spacing-xl) var(--spacing-md);
-            background: linear-gradient(180deg, transparent, rgba(0, 212, 170, 0.03), transparent);
+            background: radial-gradient(circle at center, rgba(0, 255, 136, 0.05), transparent 60%);
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-neon), transparent);
+            box-shadow: var(--neon-glow);
         }
 
         .cta-section h2 {
             font-size: clamp(1.8rem, 5vw, 3rem);
-            font-weight: 800;
+            font-weight: 900;
             color: var(--text-primary);
             margin-bottom: var(--spacing-sm);
             line-height: 1.2;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.4);
         }
 
         .cta-section p {
@@ -714,6 +817,18 @@
             border-top: 1px solid var(--border);
             padding: var(--spacing-xl) 0 var(--spacing-lg);
             background: var(--bg-secondary);
+            position: relative;
+        }
+
+        .footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--accent-neon), transparent);
+            box-shadow: var(--neon-glow);
         }
 
         .footer-grid {
@@ -726,10 +841,11 @@
         .footer-column h4 {
             color: var(--text-primary);
             font-size: 0.9rem;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             margin-bottom: var(--spacing-sm);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
         }
 
         .footer-column a {
@@ -742,7 +858,8 @@
         }
 
         .footer-column a:hover {
-            color: var(--accent-teal);
+            color: var(--accent-neon);
+            text-shadow: var(--neon-text-glow);
         }
 
         .footer-bottom {
@@ -808,7 +925,7 @@
     <nav class="nav">
         <div class="container nav-container">
             <a href="#" class="nav-logo">
-                <img src="app-icon.png" alt="FeedFare" style="width:32px;height:32px;border-radius:8px;">
+                <img src="app-icon.png" alt="FeedFare" style="width:32px;height:32px;border-radius:8px;box-shadow:0 0 10px rgba(0,255,136,0.5);">
                 FeedFare
             </a>
             <a href="#appstore" class="nav-cta">Download</a>
@@ -818,7 +935,7 @@
     <!-- HERO SECTION -->
     <section class="hero">
         <div class="hero-content">
-            <div class="app-icon">
+            <div class="app-icon neon-pulse">
                 <img src="app-icon.png" alt="FeedFare App Icon">
             </div>
             <h1 class="hero-title">
@@ -847,7 +964,7 @@
             </div>
             <div class="phone-showcase">
                 <div class="phone-mockup-item animate-on-scroll">
-                    <div class="phone-mockup">
+                    <div class="phone-mockup neon-pulse">
                         <div class="phone-screen">
                             <img src="screen1.jpg" alt="Walk More Scroll Less" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
                         </div>
@@ -856,7 +973,7 @@
                     <p class="phone-description">Start with the simple mantra that will change your mindset</p>
                 </div>
                 <div class="phone-mockup-item animate-on-scroll">
-                    <div class="phone-mockup">
+                    <div class="phone-mockup neon-pulse">
                         <div class="phone-screen">
                             <img src="screen2.jpg" alt="Set Your Goal" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
                         </div>
@@ -865,7 +982,7 @@
                     <p class="phone-description">Choose a daily step target that fits your lifestyle</p>
                 </div>
                 <div class="phone-mockup-item animate-on-scroll">
-                    <div class="phone-mockup">
+                    <div class="phone-mockup neon-pulse">
                         <div class="phone-screen">
                             <img src="screen3.jpg" alt="Honor System" style="width:100%;height:100%;object-fit:cover;border-radius:inherit;">
                         </div>
@@ -877,12 +994,14 @@
         </div>
     </section>
 
+    <div class="neon-divider"></div>
+
     <!-- FEATURES -->
     <section id="features" class="section">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <div class="section-label">Features</div>
-                <h2 class="section-title">Everything you need to move more</h2>
+                <h2 class="section-title">Everything you need to <span class="text-accent">move more</span></h2>
                 <p class="section-subtitle">FeedFare makes walking rewarding — literally.</p>
             </div>
             <div class="features-grid">
@@ -910,12 +1029,14 @@
         </div>
     </section>
 
+    <div class="neon-divider"></div>
+
     <!-- HOW IT WORKS -->
     <section id="how-it-works" class="section" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <div class="section-label">How It Works</div>
-                <h2 class="section-title">Three steps to a better habit</h2>
+                <h2 class="section-title">Three steps to a <span class="text-accent">better habit</span></h2>
                 <p class="section-subtitle">Getting started takes less than a minute.</p>
             </div>
             <div class="steps-grid">
@@ -935,12 +1056,14 @@
         </div>
     </section>
 
+    <div class="neon-divider"></div>
+
     <!-- PRICING -->
     <section id="pricing" class="section">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <div class="section-label">Pricing</div>
-                <h2 class="section-title">Free forever. PRO if you want more.</h2>
+                <h2 class="section-title">Free forever. <span class="text-accent">PRO</span> if you want more.</h2>
                 <p class="section-subtitle">Core features are completely free. No catch.</p>
             </div>
             <div class="pricing-grid">
@@ -959,7 +1082,7 @@
                 <div class="price-card featured animate-on-scroll">
                     <h3>PRO</h3>
                     <div class="price-amount">$6.99<span class="currency">/mo</span></div>
-                    <div class="price-period">$2.99/wk · $39.99/yr · 3-day free trial</div>
+                    <div class="price-period">$2.99/wk · 3-day free trial</div>
                     <ul class="price-features">
                         <li>Everything in Free</li>
                         <li>Advanced statistics</li>
@@ -969,16 +1092,31 @@
                     </ul>
                     <a href="#appstore" class="price-btn filled">Start Free Trial</a>
                 </div>
+                <div class="price-card yearly animate-on-scroll">
+                    <h3>Yearly</h3>
+                    <div class="price-amount">$39.99<span class="currency">/yr</span></div>
+                    <div class="price-period">Best value · Save 52%</div>
+                    <ul class="price-features">
+                        <li>Everything in PRO</li>
+                        <li>Biggest savings</li>
+                        <li>12 months of premium</li>
+                        <li>Cancel anytime</li>
+                        <li>All future updates</li>
+                    </ul>
+                    <a href="#appstore" class="price-btn filled">Choose Yearly</a>
+                </div>
             </div>
         </div>
     </section>
+
+    <div class="neon-divider"></div>
 
     <!-- TESTIMONIALS -->
     <section id="reviews" class="section" style="background: var(--bg-secondary);">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <div class="section-label">Reviews</div>
-                <h2 class="section-title">Walkers love FeedFare</h2>
+                <h2 class="section-title">Walkers love <span class="text-accent">FeedFare</span></h2>
                 <p class="section-subtitle">Join thousands making healthier choices every day.</p>
             </div>
             <div class="testimonials-grid">
@@ -1001,12 +1139,14 @@
         </div>
     </section>
 
+    <div class="neon-divider"></div>
+
     <!-- FAQ -->
     <section id="faq" class="section">
         <div class="container">
             <div class="section-header animate-on-scroll">
                 <div class="section-label">FAQ</div>
-                <h2 class="section-title">Questions? Answered.</h2>
+                <h2 class="section-title">Questions? <span class="text-accent">Answered.</span></h2>
             </div>
             <div class="faq-list">
                 <div class="faq-item animate-on-scroll">
@@ -1049,12 +1189,14 @@
         </div>
     </section>
 
+    <div class="neon-divider"></div>
+
     <!-- CTA SECTION -->
     <section class="cta-section">
         <div class="container animate-on-scroll">
-            <h2>Ready to walk more?</h2>
+            <h2>Ready to <span class="text-accent">walk more</span>?</h2>
             <p>Download FeedFare free and take your first step today.</p>
-            <a href="#appstore" class="app-store-badge">
+            <a href="#appstore" class="app-store-badge neon-pulse">
                 <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store">
             </a>
         </div>
@@ -1145,9 +1287,9 @@
         window.addEventListener('scroll', () => {
             const nav = document.querySelector('.nav');
             if (window.scrollY > 100) {
-                nav.style.background = 'rgba(10, 10, 10, 0.95)';
+                nav.style.background = 'rgba(0, 0, 0, 0.95)';
             } else {
-                nav.style.background = 'rgba(10, 10, 10, 0.85)';
+                nav.style.background = 'rgba(0, 0, 0, 0.9)';
             }
         });
     </script>
