@@ -1,0 +1,50 @@
+[
+  {
+    "path": "assets/dashboard-native-480.webp",
+    "bytes": 29854,
+    "width": 480,
+    "height": 1044
+  },
+  {
+    "path": "assets/dashboard-native-800.webp",
+    "bytes": 53988,
+    "width": 800,
+    "height": 1739
+  },
+  {
+    "path": "assets/activity-native-480.webp",
+    "bytes": 29928,
+    "width": 480,
+    "height": 1044
+  },
+  {
+    "path": "assets/activity-native-800.webp",
+    "bytes": 53622,
+    "width": 800,
+    "height": 1739
+  },
+  {
+    "path": "assets/stats-native-480.webp",
+    "bytes": 24306,
+    "width": 480,
+    "height": 1044
+  },
+  {
+    "path": "assets/stats-native-800.webp",
+    "bytes": 43190,
+    "width": 800,
+    "height": 1739
+  },
+  {
+    "path": "assets/app-icon-64.webp",
+    "bytes": 888
+  },
+  {
+    "path": "assets/app-icon-128.webp",
+    "bytes": 2338
+  },
+  {
+    "path": "assets/app-icon-256.webp",
+    "bytes": 6228
+  }
+]

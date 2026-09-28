@@ -1,0 +1,21 @@
+PASS index.html landmarks, image metadata, local links, and anchors
+PASS privacy-policy.html landmarks, image metadata, local links, and anchors
+PASS terms.html landmarks, image metadata, local links, and anchors
+PASS support.html landmarks, image metadata, local links, and anchors
+PASS 404.html landmarks, image metadata, local links, and anchors
+PASS structured data, CSP hash, FAQ controls, homepage max-resolution resource budget: 184460 bytes
+PASS text contrast #586576 on #f5f6f9 5.49:1
+PASS text contrast #586576 on #ffffff 5.94:1
+PASS text contrast #586576 on #eaf0f8 5.18:1
+PASS text contrast #586576 on #fafbfd 5.73:1
+PASS text contrast #0865d5 on #f5f6f9 5.07:1
+PASS text contrast #0865d5 on #ffffff 5.48:1
+PASS text contrast #0865d5 on #eaf0f8 4.78:1
+PASS text contrast #465467 on #f5f6f9 7.13:1
+PASS text contrast #46566d on #ffffff 7.47:1
+PASS text contrast #c6d0dd on #18212e 10.39:1
+PASS text contrast #bcdaff on #18212e 11.28:1
+PASS text contrast #ffffff on #0865d5 5.48:1
+PASS text contrast #064caa on #ffffff 8.01:1
+PASS text contrast #064caa on #e9f2ff 7.10:1
+PASS select boundary contrast
