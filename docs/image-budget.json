@@ -37,14 +37,20 @@
   },
   {
     "path": "assets/app-icon-64.webp",
-    "bytes": 888
+    "bytes": 2200,
+    "width": 64,
+    "height": 64
   },
   {
     "path": "assets/app-icon-128.webp",
-    "bytes": 2338
+    "bytes": 4906,
+    "width": 128,
+    "height": 128
   },
   {
     "path": "assets/app-icon-256.webp",
-    "bytes": 6228
+    "bytes": 11070,
+    "width": 256,
+    "height": 256
   }
 ]

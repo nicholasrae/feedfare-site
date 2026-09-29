@@ -19,12 +19,12 @@ def cta(placement, label='View on the App Store', extra=''):
 def header():
     return '''<a class="skip-link" href="#main">Skip to content</a>
 <header class="site-header"><nav class="wrap nav" aria-label="Main navigation">
-<a class="brand" href="https://feedfare.app/" aria-label="FeedFare home"><img src="assets/app-icon-64.webp" width="38" height="38" alt="" decoding="async"><span translate="no">FeedFare</span></a>
+<a class="brand" href="https://feedfare.app/" aria-label="FeedFare home"><img src="assets/app-icon-64.webp?v=build29" srcset="assets/app-icon-128.webp?v=build29 2x" width="38" height="38" alt="" decoding="async"><span translate="no">FeedFare</span></a>
 <div class="nav-links"><a href="https://feedfare.app/#how-it-works">How it works</a><a href="https://feedfare.app/#the-app">The app</a><a href="https://feedfare.app/#faq">FAQ</a><a href="https://feedfare.app/support.html">Support</a></div>
 ''' + cta('navigation','Get FeedFare','button-small') + '</nav></header>'
 
 def footer():
-    return '''<footer class="footer"><div class="wrap"><div class="footer-top"><a class="brand" href="https://feedfare.app/"><img src="assets/app-icon-64.webp" width="32" height="32" alt="" loading="lazy"><span translate="no">FeedFare</span></a><nav class="footer-links" aria-label="Footer navigation"><a href="https://feedfare.app/#about">About</a><a href="https://feedfare.app/support.html">Support</a><a href="https://feedfare.app/privacy-policy.html">Privacy</a><a href="https://feedfare.app/terms.html">Terms</a><a href="https://nickrae.net">Made by Nick Rae ↗</a></nav></div><div class="footer-bottom"><span>© 2026 Nick Rae. A little movement. A better balance.</span><span>Made for your day, not your attention.</span></div></div></footer>'''
+    return '''<footer class="footer"><div class="wrap"><div class="footer-top"><a class="brand" href="https://feedfare.app/"><img src="assets/app-icon-64.webp?v=build29" width="32" height="32" alt="" loading="lazy"><span translate="no">FeedFare</span></a><nav class="footer-links" aria-label="Footer navigation"><a href="https://feedfare.app/#about">About</a><a href="https://feedfare.app/support.html">Support</a><a href="https://feedfare.app/privacy-policy.html">Privacy</a><a href="https://feedfare.app/terms.html">Terms</a><a href="https://nickrae.net">Made by Nick Rae ↗</a></nav></div><div class="footer-bottom"><span>© 2026 Nick Rae. A little movement. A better balance.</span><span>Made for your day, not your attention.</span></div></div></footer>'''
 
 def page(title,description,path,body,schema=None,script=False,noindex=False):
     structured = json.dumps(schema,separators=(',',':'),ensure_ascii=False) if schema else ''
@@ -39,10 +39,10 @@ def page(title,description,path,body,schema=None,script=False,noindex=False):
 <meta name="theme-color" content="#f5f6f9">
 <title>{escape(title)}</title><meta name="description" content="{escape(description,quote=True)}">
 <link rel="canonical" href="https://feedfare.app/{path}">
-<link rel="icon" href="assets/favicon.png" type="image/png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<link rel="icon" href="assets/favicon.png?v=build29" type="image/png"><link rel="apple-touch-icon" href="assets/apple-touch-icon.png?v=build29">
 <meta name="apple-itunes-app" content="app-id=6758923557">
-<meta property="og:type" content="website"><meta property="og:url" content="https://feedfare.app/{path}"><meta property="og:title" content="{escape(title,quote=True)}"><meta property="og:description" content="{escape(description,quote=True)}"><meta property="og:image" content="https://feedfare.app/og-image.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="FeedFare — Walk first. Scroll later. A preview of the new native app.">
-<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{escape(title,quote=True)}"><meta name="twitter:description" content="{escape(description,quote=True)}"><meta name="twitter:image" content="https://feedfare.app/og-image.png">
+<meta property="og:type" content="website"><meta property="og:url" content="https://feedfare.app/{path}"><meta property="og:title" content="{escape(title,quote=True)}"><meta property="og:description" content="{escape(description,quote=True)}"><meta property="og:image" content="https://feedfare.app/og-image.png?v=build29"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="FeedFare — Walk first. Scroll later. A preview of the new native app.">
+<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{escape(title,quote=True)}"><meta name="twitter:description" content="{escape(description,quote=True)}"><meta name="twitter:image" content="https://feedfare.app/og-image.png?v=build29">
 {'<meta name="robots" content="noindex">' if noindex else ''}
 <link rel="stylesheet" href="assets/site.css?v=20260928">
 {'<script type="application/ld+json">'+structured+'</script>' if structured else ''}

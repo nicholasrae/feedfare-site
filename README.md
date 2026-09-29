@@ -17,9 +17,11 @@ The generated HTML is committed so deployment has no package manager or build-se
 
 ## Images and visual identity
 
-The site uses FeedFare's existing icon, light native surfaces, blue controls, system typography, and restrained translucency. Three real native simulator screenshots use example data and are explicitly labeled as TestFlight previews. Source captures are `dashboard-light.png`, `activity-light.png`, and `stats-light.png` from the native app's `docs/native-verification` folder. Do not replace them with customer Health data.
+The site uses FeedFare build 29's approved blue footprint Liquid Glass icon, light native surfaces, blue controls, system typography, and restrained translucency. Three real native simulator screenshots use example data and are explicitly labeled as TestFlight previews. Source captures are `dashboard-light.png`, `activity-light.png`, and `stats-light.png` from the native app's `docs/native-verification` folder. Do not replace them with customer Health data.
 
-WebP variants are 480 and 800 pixels wide. Dimensions and byte sizes are recorded in `docs/image-budget.json`. The three highest-resolution images total 150,800 bytes; all homepage markup, CSS, JavaScript, displayed icon, and those images total about 185 KB before HTTP compression. Browser source selection, favicons, caching, and headers can affect actual transfer. Historical `screen*.png/jpg` assets remain at their previous URLs for compatibility but are not loaded by the new pages.
+WebP variants are 480 and 800 pixels wide. Dimensions and byte sizes are recorded in `docs/image-budget.json`. The three highest-resolution images total 150,800 bytes; all homepage markup, CSS, JavaScript, displayed icon, and those images total about 191 KB before HTTP compression. Browser source selection, favicons, caching, and headers can affect actual transfer. Historical `screen*.png/jpg` assets remain at their previous URLs for compatibility but are not loaded by the new pages.
+
+`app-icon.png` is the approved 1024-pixel render exported from the native app’s Icon Composer source. Optimized WebP sizes, browser favicons, and the opaque 180-pixel Apple touch icon are derived from that artwork. Logo and social-image URLs use `v=build29` so cached older artwork is refreshed.
 
 `python3 scripts/build_share_image.py` regenerates the 1200×630 social card using Pillow and the macOS Avenir Next font. The generated card is checked in; neither Pillow nor macOS is required to deploy the site.
 

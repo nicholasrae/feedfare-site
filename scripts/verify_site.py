@@ -48,7 +48,7 @@ assert json.loads(structured)['@type'] == 'SoftwareApplication'
 digest = base64.b64encode(hashlib.sha256(structured.encode()).digest()).decode()
 assert 'sha256-'+digest in home
 assert len([1 for tag, _ in pages['index.html'].tags if tag=='summary']) == 7
-resources = {'index.html', 'assets/site.css', 'assets/site.js', 'assets/app-icon-64.webp'}
+resources = {'index.html', 'assets/site.css', 'assets/site.js', 'assets/app-icon-64.webp', 'assets/app-icon-128.webp'}
 resources.update('assets/'+name+'-native-800.webp' for name in ('dashboard','activity','stats'))
 size = sum((ROOT/p).stat().st_size for p in resources)
 assert size < 250_000, ('homepage budget', size)
