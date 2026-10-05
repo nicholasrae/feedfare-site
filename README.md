@@ -17,7 +17,7 @@ The generated HTML is committed so deployment has no package manager or build-se
 
 ## Images and visual identity
 
-The site uses FeedFare build 29's approved blue footprint Liquid Glass icon, light native surfaces, blue controls, system typography, and restrained translucency. Three real native simulator screenshots use example data and are explicitly labeled as TestFlight previews. Source captures are `dashboard-light.png`, `activity-light.png`, and `stats-light.png` from the native app's `docs/native-verification` folder. Do not replace them with customer Health data.
+The site uses FeedFare build 29's approved blue footprint Liquid Glass icon, light native surfaces, blue controls, system typography, and restrained translucency. Three real native simulator screenshots use example data and are explicitly labeled as simulator screens. They show native FeedFare 2026.9.28. Source captures are `dashboard-light.png`, `activity-light.png`, and `stats-light.png` from the native app's `docs/native-verification` folder. Do not replace them with customer Health data.
 
 WebP variants are 480 and 800 pixels wide. Dimensions and byte sizes are recorded in `docs/image-budget.json`. The three highest-resolution images total 150,800 bytes; all homepage markup, CSS, JavaScript, displayed icon, and those images total about 191 KB before HTTP compression. Browser source selection, favicons, caching, and headers can affect actual transfer. Historical `screen*.png/jpg` assets remain at their previous URLs for compatibility but are not loaded by the new pages.
 
@@ -44,13 +44,12 @@ The script copies the privacy policy, terms, and four dedicated assets. It only 
 
 App Store Connect generated the provider token `1329661` for this account. This is a public campaign attribution token, not an API credential. CTAs use `site_navigation`, `site_hero`, and `site_download`. Inspect them under Analytics → Acquisition → Campaigns. Apple requires at least five individual Apple Accounts to install through a campaign before reporting it. No analytics script, cookie, customer identifier, Health data, or Screen Time data is added to the website.
 
-## Native paid-download launch
+## Native paid-download release
 
-The September 28 website is truthful about the current public offer: free download with optional in-app purchases. The native full-app paid-download version is in TestFlight, so screenshots and native-only behavior are labeled as previews. When the native app actually launches:
+The rollout copy describes native FeedFare 2026.9.28, requiring iOS/iPadOS 17 or later, with a US $4.99 one-time price configured in App Store Connect and regional pricing shown by Apple. The website tells visitors to check the current storefront version and price while distribution propagates. Existing owners receive full native access when they install the update on supported devices. Do not imply that every device has already upgraded or that older installed versions no longer use legacy purchase services.
 
-1. Verify the public binary, minimum OS, regional price, and App Store privacy declarations.
-2. Update homepage, FAQ, terms, support, metadata, and screenshot captions together.
-3. Publish clear instructions for prior subscribers after the subscription transition is decided. Removing a purchase SDK or updating this site does not cancel renewals.
-4. Replace preview screenshots only with verified release screens; keep example data labeled.
+The October 5 rollout copy is backed by App Store Connect Ready for Distribution and the verified US $4.99 current price. Keep the rollout qualifiers until the public native version and price have been verified; do not replace them with universal immediate-availability claims early. The yearly, monthly, and weekly legacy subscription products were verified as Developer Removed from Sale on October 5, 2026, so the site explains that previous plans have been retired and no longer renew. This is separate from installing an app update. Preserve historical purchase/privacy explanations for older installed versions and keep future billing changes tied to verified App Store Connect product state.
 
-See `docs/website-update-2026-09-28.md` for the audit closure and validation limits.
+When content changes, update homepage, FAQ, support, policy bodies, metadata, social-card label, and sitemap together. Sync policy mirrors using the scoped script above. Keep example data and simulator provenance clear; only replace screenshots with verified app screens.
+
+See `docs/website-update-2026-09-28.md` for the original audit closure and validation limits.

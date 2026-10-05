@@ -27,6 +27,6 @@ ImageDraw.Draw(mask).rounded_rectangle((0, 0, shot.width, shot.height), radius=2
 x, y = 857, 71
 draw.rounded_rectangle((x-7, y-7, x+shot.width+7, y+shot.height+7), radius=31, fill='white', outline='#d6dfeb', width=2)
 im.paste(shot, (x, y), mask)
-draw.text((829, 32), 'NATIVE PREVIEW · TESTFLIGHT', font=font(15, 2), fill='#46566d')
+draw.text((829, 32), 'NATIVE APP · EXAMPLE DATA', font=font(15, 2), fill='#46566d')
 im.save(ROOT/'og-image.png', optimize=True)
 print('Created 1200 × 630 social image:', (ROOT/'og-image.png').stat().st_size, 'bytes')
