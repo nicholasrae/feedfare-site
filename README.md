@@ -34,7 +34,7 @@ python3 scripts/build_site.py
 python3 scripts/sync_legal.py /path/to/feedfare-legal /path/to/nickrae-site
 ```
 
-The script copies the privacy policy, terms, and four dedicated assets. It only touches the existing policy files and `feedfare/assets/` within the personal website. It never commits or publishes. Review, commit, and push each repository independently.
+The script copies the privacy policy, terms, and five dedicated assets. It only touches the existing policy files and `feedfare/assets/` within the personal website. It never commits or publishes. Review, commit, and push each repository independently.
 
 - Canonical: `https://feedfare.app/privacy-policy.html` and `/terms.html`
 - App Store legacy policy: `https://nicholasrae.github.io/feedfare-legal/privacy-policy.html`

@@ -23,6 +23,6 @@ for target, privacy_name in targets:
         shutil.copyfile(root / source, target / destination)
     assets = target / 'assets'
     assets.mkdir(exist_ok=True)
-    for name in ['site.css', 'app-icon-64.webp', 'favicon.png', 'apple-touch-icon.png']:
+    for name in ['site.css', 'app-icon-64.webp', 'app-icon-128.webp', 'favicon.png', 'apple-touch-icon.png']:
         shutil.copyfile(root / 'assets' / name, assets / name)
-    print(f'Synced policies and four scoped assets to {target}')
+    print(f'Synced policies and five scoped assets to {target}')
