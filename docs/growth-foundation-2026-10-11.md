@@ -32,7 +32,7 @@ python3 scripts/verify_site.py
 node --check assets/site.js
 ```
 
-The existing verifier covers landmarks, image sizing and alternatives, local assets, navigation anchors, structured data, the CSP hash, FAQ controls and text-contrast pairs. It also checks the local video source, preload policy, captions and simulator disclosures. The homepage's maximum-resolution static resource bundle, including all three app screens and the demo poster, totals 227,154 bytes before compression; this is a bounded file-size calculation, not a browser transfer measurement. The 905,505-byte MP4 is separate and loaded on demand.
+The existing verifier covers landmarks, image sizing and alternatives, local assets, navigation anchors, structured data, the CSP hash, FAQ controls and text-contrast pairs. It also checks the local video source, preload policy, captions and simulator disclosures. The homepage's maximum-resolution static resource bundle, including all three app screens and the demo poster, totals 229,389 bytes before compression; this is a bounded file-size calculation, not a browser transfer measurement. The 905,505-byte MP4 is separate and loaded on demand.
 
 Preview with `python3 -m http.server 4173 --bind 127.0.0.1` from this repository. Root owns browser verification of responsive layout, keyboard controls, actual media loading/playback, and any commit or publication. This preparation did not deploy, commit, modify app source, add analytics or alter account settings. The pre-existing untracked `design/` folder was left intact. If publishing changes to shared legal page assets, sync the existing legal mirrors with `scripts/sync_legal.py` and review each repository independently.
 

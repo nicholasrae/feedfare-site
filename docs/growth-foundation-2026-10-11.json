@@ -20,7 +20,7 @@
       "sha256": "e4f9263a0a607cd9a0b4c117653b7575642eee6462782266755b2466e8abfc92"
     }
   },
-  "initialPageMaximumResolutionResourceBudgetBytes": 227154,
+  "initialPageMaximumResolutionResourceBudgetBytes": 229389,
   "verification": [
     "python3 scripts/build_site.py",
     "python3 scripts/verify_site.py",
@@ -61,5 +61,6 @@
     "captions": "Burned into video; optional English VTT, off by default to avoid duplicate text",
     "familySharingFAQ": "Expanded and verified",
     "consoleErrors": []
-  }
+  },
+  "pressPage": "Prepared and visually checked at 1280px and 390px; published state tracked in root release evidence"
 }

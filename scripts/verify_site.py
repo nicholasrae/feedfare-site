@@ -20,7 +20,7 @@ class Document(HTMLParser):
         assert not any(k.startswith('on') for k in attrs), (self.path.name, 'inline event')
 
 pages = {name: Document(ROOT/name) for name in
-         ('index.html', 'privacy-policy.html', 'terms.html', 'support.html', '404.html')}
+         ('index.html', 'press.html', 'privacy-policy.html', 'terms.html', 'support.html', '404.html')}
 for name, page in pages.items():
     assert sum(tag == 'h1' for tag, _ in page.tags) == 1, (name, 'h1')
     assert sum(tag == 'main' for tag, _ in page.tags) == 1, (name, 'main')
