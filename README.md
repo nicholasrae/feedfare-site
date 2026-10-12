@@ -19,7 +19,7 @@ The generated HTML is committed so deployment has no package manager or build-se
 
 The site uses FeedFare build 29's approved blue footprint Liquid Glass icon, light native surfaces, blue controls, system typography, and restrained translucency. Three real native simulator screenshots use example data and are explicitly labeled as simulator screens. They show native FeedFare 2026.9.28. Source captures are `dashboard-light.png`, `activity-light.png`, and `stats-light.png` from the native app's `docs/native-verification` folder. Do not replace them with customer Health data.
 
-WebP variants are 480 and 800 pixels wide. Dimensions and byte sizes are recorded in `docs/image-budget.json`. The three highest-resolution images total 150,800 bytes; all homepage markup, CSS, JavaScript, displayed icon, and those images total about 191 KB before HTTP compression. Browser source selection, favicons, caching, and headers can affect actual transfer. Historical `screen*.png/jpg` assets remain at their previous URLs for compatibility but are not loaded by the new pages.
+WebP variants are 480 and 800 pixels wide. Dimensions and byte sizes are recorded in `docs/image-budget.json`. The three highest-resolution images total 150,800 bytes. The October 11 homepage markup, CSS, JavaScript, displayed icons, those images, and the new demo poster total 227,154 bytes before HTTP compression. Browser source selection, favicons, caching, and headers can affect actual transfer. Historical `screen*.png/jpg` assets remain at their previous URLs for compatibility but are not loaded by the new pages.
 
 `app-icon.png` is the approved 1024-pixel render exported from the native app’s Icon Composer source. Optimized WebP sizes, browser favicons, and the opaque 180-pixel Apple touch icon are derived from that artwork. Logo and social-image URLs use `v=build29` so cached older artwork is refreshed.
 
@@ -53,3 +53,11 @@ The October 9 availability copy is backed by the public US App Store listing for
 When content changes, update homepage, FAQ, support, policy bodies, metadata, social-card label, and sitemap together. Sync policy mirrors using the scoped script above. Keep example data and simulator provenance clear; only replace screenshots with verified app screens.
 
 See `docs/website-update-2026-09-28.md` for the original audit closure and validation limits.
+
+## October 11 purchase explanation and demo
+
+The homepage presents the one-time offer, compatibility, regional pricing and a 56-second walkthrough together. The walkthrough is hosted locally in `assets/feedfare-demo-56s.mp4` (905,505 bytes); its source is assigned only after a visitor presses play. It has native playback controls, inline playback, an optional local English WebVTT track and a YouTube fallback. There is no iframe, autoplay, third-party player, new analytics, cookie, storage or backend. English captions are burned into the video; the optional native track is not enabled by default, avoiding duplicate text. The poster is loaded lazily. JavaScript-disabled visitors can open the captioned MP4 directly.
+
+The video comes from the approved October 11 simulator package. It models steps and app protection in a temporary demonstration build based on the public feature baseline. The visible disclaimer and captions explain that it does not show a physical walk, Apple Health updates, an external app unlocking or iOS Screen Time enforcement. Do not reframe it as real-device evidence. The five-minute wait is shortened in the edit.
+
+The purchase explanation links to the existing permission and protection guidance, including the current 50-app selection limit and lack of website blocking. The Family Sharing FAQ describes Apple's eligible purchase-sharing benefit; it does not imply shared progress or remote parental enforcement. The public US listing was rechecked October 11, 2026 for US $4.99, version 2026.9.28, iOS/iPadOS 17+ and Family Sharing. Terms wording now reflects the already released native app; its effective date and substantive contract terms are unchanged. See `docs/growth-foundation-2026-10-11.md` for provenance and validation boundaries.

@@ -29,7 +29,7 @@ for name, page in pages.items():
     for tag, attrs in page.tags:
         if tag == 'img':
             assert all(k in attrs for k in ('alt', 'width', 'height')), (name, 'image sizing/alt')
-        urls = [attrs[k] for k in ('href', 'src') if k in attrs]
+        urls = [attrs[k] for k in ('href', 'src', 'poster', 'data-demo-source', 'data-demo-track') if k in attrs]
         urls += [item.strip().split()[0] for item in attrs.get('srcset','').split(',') if item.strip()]
         for url in urls:
             parts = urlsplit(url)
@@ -47,12 +47,22 @@ structured = home.split('<script type="application/ld+json">')[1].split('</scrip
 assert json.loads(structured)['@type'] == 'SoftwareApplication'
 digest = base64.b64encode(hashlib.sha256(structured.encode()).digest()).decode()
 assert 'sha256-'+digest in home
-assert len([1 for tag, _ in pages['index.html'].tags if tag=='summary']) == 7
+assert len([1 for tag, _ in pages['index.html'].tags if tag=='summary']) == 8
 resources = {'index.html', 'assets/site.css', 'assets/site.js', 'assets/app-icon-64.webp', 'assets/app-icon-128.webp'}
 resources.update('assets/'+name+'-native-800.webp' for name in ('dashboard','activity','stats'))
+resources.add('assets/feedfare-demo-poster.webp')
 size = sum((ROOT/p).stat().st_size for p in resources)
 assert size < 250_000, ('homepage budget', size)
 print('PASS structured data, CSP hash, FAQ controls, homepage max-resolution resource budget:', size, 'bytes')
+video = [attrs for tag, attrs in pages['index.html'].tags if tag == 'video']
+assert len(video) == 1
+assert video[0].get('preload') == 'none' and 'autoplay' not in video[0] and 'src' not in video[0]
+assert video[0].get('data-demo-source') == 'assets/feedfare-demo-56s.mp4'
+assert 'media-src \'self\'' in home
+assert 'simulated steps and protection' in home and 'iOS Screen Time enforcement' in home
+assert 'WEBVTT' == (ROOT/'assets/feedfare-demo-56s.vtt').read_text().splitlines()[0]
+assert (ROOT/'assets/feedfare-demo-56s.mp4').stat().st_size < 1_000_000
+print('PASS on-demand local video, captions, media policy, and visible simulator disclosures')
 
 def luminance(color):
     parts = [int(color[i:i+2],16)/255 for i in (0,2,4)]

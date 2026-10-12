@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "preparedAtUTC": "2026-10-12T01:06:47.561503+00:00",
+  "userFacingDate": "2026-10-11",
+  "status": "Browser-tested locally; production publication tracked in FeedFare release evidence",
+  "sourcePublicVideo": "https://www.youtube.com/watch?v=EQfLgETl0m0",
+  "sourceVideo": "/Users/nick/Documents/FeedFare-Marketing/2026-10-11/simulator-demo/feedfare-sim-demo-walkthrough-2026-10-11.mp4",
+  "provenance": "Temporary simulator demo build based on FeedFare 2026.9.28 (29); steps and app protection are simulated. No physical walk, external app unlock or iOS Screen Time enforcement is shown.",
+  "assets": {
+    "assets/feedfare-demo-56s.mp4": {
+      "bytes": 905505,
+      "sha256": "5952c85e17df860f2618b109de7e221fd8a67c050aa4b9284cd8417718509423"
+    },
+    "assets/feedfare-demo-56s.vtt": {
+      "bytes": 769,
+      "sha256": "7c9f720e3cdd7db1c09ba285806c58a150b55359514f085fe6542f4e62394b66"
+    },
+    "assets/feedfare-demo-poster.webp": {
+      "bytes": 26412,
+      "sha256": "e4f9263a0a607cd9a0b4c117653b7575642eee6462782266755b2466e8abfc92"
+    }
+  },
+  "initialPageMaximumResolutionResourceBudgetBytes": 227154,
+  "verification": [
+    "python3 scripts/build_site.py",
+    "python3 scripts/verify_site.py",
+    "node --check assets/site.js"
+  ],
+  "liveSourceVerification": "Parent agent verified the public US App Store listing October 11 for US $4.99, native 2026.9.28, iOS/iPadOS 17+, Family Sharing.",
+  "didNotChange": [
+    "App source",
+    "Xcode project files",
+    "Third-party analytics",
+    "Forms or backend",
+    "Existing privacy policy body",
+    "Legacy subscription help",
+    "CNAME",
+    ".nojekyll",
+    "Google site verification"
+  ],
+  "browserVerificationAtUTC": "2026-10-12T01:13:52.079164+00:00",
+  "browserVerification": {
+    "viewports": [
+      {
+        "width": 1280,
+        "height": 720
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "horizontalOverflow": false,
+    "keyboardPlay": "Enter activates playback",
+    "playback": {
+      "durationSeconds": 56,
+      "readyState": 4,
+      "error": null
+    },
+    "preplaySrc": null,
+    "captions": "Burned into video; optional English VTT, off by default to avoid duplicate text",
+    "familySharingFAQ": "Expanded and verified",
+    "consoleErrors": []
+  }
+}
