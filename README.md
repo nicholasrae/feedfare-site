@@ -42,7 +42,7 @@ The script copies the privacy policy, terms, and five dedicated assets. It only 
 
 ## Acquisition measurement
 
-App Store Connect generated the provider token `1329661` for this account. This is a public campaign attribution token, not an API credential. CTAs use `site_navigation`, `site_hero`, and `site_download`. All website download links target the approved “Walking before scrolling” custom product page (`ppid=fc80f820-a690-452a-95d4-76c93fce92d7`), while retaining the existing country-neutral App Store paths and campaign attribution. Inspect them under Analytics → Acquisition → Campaigns. Apple requires at least five individual Apple Accounts to install through a campaign before reporting it. No analytics script, cookie, customer identifier, Health data, or Screen Time data is added to the website.
+App Store Connect generated the provider token `1329661` for this account. This is a public campaign attribution token, not an API credential. CTAs use `site_navigation`, `site_hero`, `site_download`, `site_press`, and `site_press_footer`. All website download links target the approved “Walking before scrolling” custom product page (`ppid=fc80f820-a690-452a-95d4-76c93fce92d7`), while retaining the existing country-neutral App Store paths and campaign attribution. Inspect them under Analytics → Acquisition → Campaigns. Apple requires at least five individual Apple Accounts to install through a campaign before reporting it. No analytics script, cookie, customer identifier, Health data, or Screen Time data is added to the website.
 
 ## Native paid-download release
 
