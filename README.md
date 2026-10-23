@@ -73,3 +73,11 @@ The homepage includes a dedicated `#iphone-duo` section and a discoverable hero 
 Source evidence: `/Users/nick/Documents/rork-feedfare/release-evidence/duo-build36-validation-2026-10-22/QA-report.md`. Website verification and publication evidence: `/Users/nick/Documents/rork-feedfare/release-evidence/website-duo-2026-10-22/`. Legal bodies, dates, pricing, campaign links and existing media are unchanged.
 
 The October 22 update also removes dated current-version labels from availability, compatibility, support and press copy. Apple remains the source for the latest public version. Historical screenshot, policy and release-verification references are retained.
+
+## October 23 approved iPhone Duo update
+
+The homepage, compatibility FAQ, support guide and press kit now describe version 2026.10.22 as approved. App Store Connect confirms the exact selected build 37 is Ready for Distribution with automatic release. The public U.S. listing still displayed version 2026.10.9 during the October 23 check, so the site says availability is updating and directs visitors to Apple for the version offered to their device. Do not label this update publicly available until storefront propagation is verified.
+
+Compact/expanded layouts, selected-day Stats, Calm and session-confirmation continuity are backed by the build 37 release notes and simulator checks. Physical iPhone Duo testing remains pending. Historical screenshots and the existing simulator demo keep their original provenance; no new video is published. Download links keep the Walking before scrolling custom-page ID and existing campaign attribution. Legal bodies, pricing and existing assets remain unchanged.
+
+Release proof: `/Users/nick/Documents/FeedFare-Releases/2026.10.22-37/PublicAppReviewMonitoring/evidence/20261023T211442Z-observation.json`. Website publication evidence: `/Users/nick/Documents/rork-feedfare/release-evidence/website-release37-2026-10-23/`. The separate local Duo video preparation in the original website checkout remains untouched.
