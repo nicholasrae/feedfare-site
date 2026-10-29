@@ -32,3 +32,9 @@
 @media(max-width:800px){.duo-heading{grid-template-columns:1fr;gap:22px}.duo-heading>p{max-width:580px;font-size:15px}.duo-plans{gap:25px}.duo-plans dt{font-size:16px}}
 @media(max-width:600px){.duo-heading h2{font-size:2.35rem}.duo-plans{grid-template-columns:1fr;gap:24px;margin-top:28px;padding-block:25px}.duo-plans dd{margin-top:7px}.duo-status{font-size:12px}.duo-intro-link{font-size:12px}}
 @media print{.duo-heading,.duo-plans{display:block}.duo-plans>div{margin-block:15px}}
+
+/* A clearly separated preview of the next update, within FeedFare's existing visual language. */
+.update-panel{padding:clamp(26px,4vw,48px);border:1px solid var(--line);border-radius:28px;background:#fff}.update-heading{display:grid;grid-template-columns:1.15fr 1fr;gap:48px;align-items:end}.update-heading .eyebrow{color:var(--blue);margin-bottom:16px}.update-heading h2{font-size:clamp(2rem,4vw,3rem)}.update-status{font-size:14px;color:var(--muted);line-height:1.75}.update-status strong{display:block;color:var(--blue);margin-bottom:8px}.update-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:30px;margin-block:30px;padding-block:28px;border-block:1px solid var(--line)}.update-grid h3{font-size:17px;line-height:1.4;margin:0 0 12px}.update-grid p{font-size:14px;color:var(--muted);line-height:1.75}.update-footnote{font-size:13px;line-height:1.8;color:var(--muted);max-width:850px}.update-footnote a{font-weight:600}
+@media(max-width:800px){.update-heading{grid-template-columns:1fr;gap:22px}.update-grid{gap:22px}}
+@media(max-width:600px){.update-panel{border-radius:22px;padding:25px}.update-grid{grid-template-columns:1fr;gap:23px;margin-block:25px;padding-block:25px}.update-heading h2{font-size:2.1rem}.update-status{font-size:13px}}
+@media print{.update-heading,.update-grid{display:block}.update-grid article{margin-block:15px}}
